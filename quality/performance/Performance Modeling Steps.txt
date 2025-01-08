@@ -1,4 +1,5 @@
 The performance modeling process consists of the following steps:
+
 1. Identify key scenarios. Identify those scenarios in which performance is
 important and the ones that pose the most risk to your performance objectives.
 
@@ -46,13 +47,13 @@ characteristics:
 ● Scenarios that are frequently executed.
 ● Scenarios that account for a high percentage of system use.
 ● Scenarios that consume significant system resources.
+
 Do not ignore your significant scenarios. Your significant scenarios can influence
 whether your critical scenarios meet their performance objectives. Also, do not forget
 to consider how your system will behave if different significant or critical scenarios
 are being run concurrently by different users. This “parallel integration” often drives
 key decisions about your application’s units of work. For example, to keep search
 response brisk, you might need to commit orders one line item at a time. 
-
 
 
 Step 2. Identify Workload

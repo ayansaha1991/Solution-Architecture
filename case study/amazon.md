@@ -11,10 +11,13 @@ Build a online shopping system that stores an inventory of products under differ
 - Buyers can review and rate purchased products.
 
 ### 3. Quality Requirements
-
+- Performance - A Seller wants to registers products in amazon portal at average load, registers products <3 seconds
+- Performance - A Seller wants to list product catalog in amazon portal at average load, List product catalog <1 second 
+- Performance - A buyer wants to Search product by keyword in amazon portal at average load, show relevant items in <2 seconds
+- Performance - A buyer wants order history in amazon portel at average load, sees it in <3 secondsPerformance
 
 ### Reference
-
+1000 concurrent requests
 
 
 ## amazon

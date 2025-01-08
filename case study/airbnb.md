@@ -11,8 +11,17 @@ Airbnb is a online platform which associates individuals who need to rent out th
 + After the stay, the payment automatically gets paid to the host
 + User and host both review each other
 
+Context - User, Property-Owner, Admin
+Modules/Logical View - Listing, Serach, Booking, Payment
+Datastore - Listing => Document DB, Search => Elastic Search, Booking => RDBMS, Payment => RDBMS
+
+
 #### Search
 There are more users that will use “search” than users that will make a booking. You will have to make sure that the search is performant, but at the same time, you will have to ensure that the failure of search services doesn’t take down your app’s booking functionality. Booking is a core feature, and if I were to prioritize, I would prioritize this above everything else.
+
+Search > Book
+Search : Find a listing with full-text search, Select a item and call APIs to bring in more details for the listed property.
+Listing service can also list items but with exact search in-case of search node failure.
 
 #### Trip Cancellation at the last minute
 + Adding a cancellation fee: For every last minute cancellation by the host, the host will incur a cancellation fee.

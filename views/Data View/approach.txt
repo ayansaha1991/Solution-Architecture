@@ -1,8 +1,15 @@
 Connection Pooling
-Connection pooling allows applications to reuse a connection from the pool, or create new connection and add it to the pool if no suitable connection is available. When applications close a connection, it is released back into the pool and the underlying connection remains open. Although pooling open connections does consume resources, it reduces data access delays and makes applications run more efficiently when suitable pooled connections are available.
+Connection pooling allows applications to reuse a connection from the pool, or create new connection 
+and add it to the pool if no suitable connection is available. When applications close a connection, 
+it is released back into the pool and the underlying connection remains open. Although pooling open 
+connections does consume resources, it reduces data access delays and makes applications run more 
+efficiently when suitable pooled connections are available.
 
 Transactions and Concurrency
-If you have business critical operations in your application, consider wrapping them in transactions. Transactions allow you to execute associated actions on a database as an atomic unit, and ensure database integrity. A transaction is only considered complete if all information and actions are complete, and the associated database changes are made permanent. Transactions support undo (rollback) database actions following an error, which helps to preserve the integrity of data in the database. Use the following guidance to help you design transactions:
+If you have business critical operations in your application, consider wrapping them in transactions. 
+Transactions allow you to execute associated actions on a database as an atomic unit, and ensure database 
+integrity. A transaction is only considered complete if all information and actions are complete, and 
+the associated database changes are made permanent. Transactions support undo (rollback) database actions following an error, which helps to preserve the integrity of data in the database. Use the following guidance to help you design transactions:
 
 If you are accessing a single data source, use connection-based transactions whenever possible. If you are using manual or explicit transactions, consider implementing the transaction within a stored procedure. If you cannot use transactions, implement compensating methods to revert the data store to its previous state.
 If you are using long-running atomic transactions, avoid holding locks for long periods. In such scenarios, use compensating locks instead. If transactions take a long time to complete, consider using asynchronous transactions that call back to the client when complete. Also, consider the use of multiple active result sets in transaction-heavy concurrent applications to avoid potential deadlock issues.

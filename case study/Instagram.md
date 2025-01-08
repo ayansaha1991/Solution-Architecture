@@ -9,7 +9,7 @@ Instagram reported 500+ million daily active Stories users worldwide, Stories is
 - Users should be able to follow other users.
 - Users should be able to view NewsFeed from other users they are following.
 
-### 3. Quality Requirements
+### 3. Quality Requirements pass@123
 
 - Assume the total users = 100 million. 
 - Let total monthly active users  (MAU) = 60 % = 60 million.

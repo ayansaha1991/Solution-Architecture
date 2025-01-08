@@ -1,0 +1,60 @@
+# Functional Reqirements 
+
+1. Payment types 
+- one time payment
+- recurring payemnt
+- global scale 
+- integration easy
+
+Modules - 
+
+User - User Authentication
+Gateway - Check fraudulent behaviour of the payment, encrypt the payment data etc
+
+Payment Processing - 
+a. Receive encrypted payment request.
+b. Contact Card network, bank to start the transfer of funds.
+c. Send notification of completion/failure to Gateway and then to merchant.
+d. Keep the transaction information with -
+   Transaction Fileds 
+    transaction_id
+    start-time
+    completion-time
+    status
+    amount
+    currency
+   Transaction status logs 
+    transaction-id
+    time 
+    status
+   Exchance Rate
+    transaction-id
+    exchange-rate
+   Payment Data
+    source -
+    destination -
+    payment-time -
+    amount -
+    currency -
+    transaction-id -
+e. Transaction conscialation - 
+
+Fraud detection -
+Notification -
+
+# Design a payment system using stripe or paypal as payment gateway 
+
+1. Centralized source of truth table that captures the payment data in secure way. So when customer
+initiate a payment, app will store the request in RDMBS and starts the process.
+2. Submit the request to Stripe or any PSP with a Idempotency key.
+   - Idempotency key generation could be selecting some pre-created keys from DB.
+   - Let client create one while loading up the payment page
+3. Stripe takes a Webhook to call us back on completion or failure of payment.
+4. On completion update the source of truth table with payment status.
+5. Look for Pending payments with Stripe in regular interval after some time. Update back the ledger table.
+   Below are the different status Stripe could come back with when asked for a pending transaction.
+   - Stripe never heard of the transaction - delete from our ledger.
+   - Stripe say payment was completed - update the ledger table with staus.
+   - Stripe says payment in in_process - wait and do nothing.
+6. Merchant reports - Use CDC mechanism.
+   - When a transaction completes, ledger table could be followed by CDC to generate different kinds of    report.

@@ -13,6 +13,12 @@ Dropbox is a cloud storage service that allows users to store their data on remo
 <li>ACID-ity is required: Atomicity, Consistency, Isolation, and Durability of all file operations should be guaranteed.</li>
 </ul>
 
+### Modules for the system 
+1. File-Chunker & De-Chunker
+2. Synchronizer - Check local workspace for change in hash of folder structure. If any Hash changes, prepare to upload.
+3. Metadata Service - Keeps track of User, Devices, Workspace, File-chunks.
+4. Block services - Receive the files in chunks or chunks it. Upload multiple chunks parallely, re-try if failure.
+
 ### Qualtiy Requirements
 <ul>
 <li>The total number of users = 500 million.</li>
@@ -20,7 +26,7 @@ Dropbox is a cloud storage service that allows users to store their data on remo
 <li>The average number of files stored by each user = 200</li>
 <li>The average size of each file = 100 KB</li>
 <li>Total number of active connections per minute = 1 million</li>
-  <li> QPS : ~500M request per day (~9000 Queries Per Second)   </li>
+<li> QPS : ~500M request per day (~9000 Queries Per Second). 9000*100KB = 900000KB  or 900MB per second   </li>
 <li>Total number of files = 500 million  * 200 = 100 billion</li>
 <li>Total storage required = 100 billion * 100 KB = 10 PB</li>
 </ul>

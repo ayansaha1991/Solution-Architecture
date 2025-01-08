@@ -8,6 +8,7 @@ Detecting failures and recovering quickly and efficiently, is necessary to maint
 RESILIENCY
 Pattern	Summary
 
+Timeouts - Make sure to assign sensible Timeouts.
 Bulkhead - Isolate elements of an application into pools so that if one fails, the others will continue to function.
 Circuit Breaker	- Handle faults that might take a variable amount of time to fix when connecting to a remote service or resource.
 Compensating Transaction - Undo the work performed by a series of steps, which together define an eventually consistent operation.
